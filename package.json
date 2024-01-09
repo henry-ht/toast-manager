@@ -1,0 +1,14 @@
+{
+  "name": "@henryht/toast-manager",
+  "version": "1.0.0",
+  "description": "Una forma fácil de general notificaciones locales (toast) con bootstrap",
+  "main": "src/toasManager.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Henry Torres (HenryHT)",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^5.0.0"
+  }
+}
