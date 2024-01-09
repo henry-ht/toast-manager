@@ -7,8 +7,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Henry Torres (HenryHT)",
-  "license": "MIT",
-  "dependencies": {
-    "bootstrap": "^5.0.0"
-  }
+  "license": "MIT"
 }
