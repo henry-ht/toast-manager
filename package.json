@@ -1,11 +1,22 @@
 {
   "name": "@henryht/toast-manager",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "main": "dist-node/toastManager.js",
+  "browser": "dist-browser/toastManager.js",
+  "type": "module",
   "description": "Una forma fácil de general notificaciones locales (toast) con bootstrap",
-  "main": "src/toasManager.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-browser": "tsc src/toastManager.ts --outDir dist-browser --module ES6",
+    "build-node": "tsc src/toastManager.ts --outDir dist-node",
+    "build": "npm run build-browser & npm run build-node"
   },
   "author": "Henry Torres (HenryHT)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "@types/bootstrap": "^5.2.10"
+  }
 }
