@@ -28,12 +28,25 @@ export var clearHide = function () {
 };
 /**
  *
+ * @param type string
+ * @param title string
+ * @param message string
+ * @param date string
+ * @returns
+ */
+var notifyHtml = function (type, title, message, date) {
+    var id = "t" + Math.floor(Math.random() * Date.now());
+    var html = '<div id="' + id + '" class="toast ' + modalTypes[type] + ' border-0 mb-3 animate__animated animate__fadeInRight" data-see="false" role="alert" aria-live="assertive" aria-atomic="true"><div class="toast-header"><strong class="me-auto">' + title + '</strong><small>' + date + '</small><button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button></div><div class="toast-body">' + message + '</div></div>';
+    return { html: html, id: id };
+};
+/**
+ *
  * primary, secondary, danger, dark, info, light, success, warning
  * @param type string
  * @param message string
- * @returns
+ * @returns json
  */
-export var simple = function (type, message) {
+var simpleHtml = function (type, message) {
     var id = "t" + Math.floor(Math.random() * Date.now());
     var html = '<div class="toast ' + modalTypes[type] + ' border-0 mb-3 animate__animated animate__fadeInRight" id="' + id + '" data-see="false" role="alert" data-bs-autohide="true" aria-live="assertive" aria-atomic="true"><div class="d-flex"><div class="toast-body">' + message + '</div><button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button></div></div>';
     return { html: html, id: id };
@@ -44,16 +57,38 @@ export var simple = function (type, message) {
  * @param type string
  * @param message string
  */
-export var simpleNotify = function (type, message) {
+export var simpleNotify = function (type, message, options) {
+    if (options === void 0) { options = {}; }
     clearHide();
-    var toast = simple(type, message);
+    var toast = simpleHtml(type, message);
     var container = document.getElementById('toast-container');
     if (container != null) {
         container.insertAdjacentHTML("afterbegin", toast.html);
         var toastEl = document.querySelectorAll('#toast-container #' + toast.id + '[data-see="false"]');
         toastEl[0].setAttribute("data-see", "true");
         if (bootstrap != null) {
-            new bootstrap.Toast(toastEl[0], {}).show();
+            new bootstrap.Toast(toastEl[0], options).show();
+        }
+    }
+};
+/**
+ * primary, secondary, danger, dark, info, light, success, warning
+ * @param type string
+ * @param title string
+ * @param message string
+ * @param date string
+ */
+export var notify = function (type, title, message, date, options) {
+    if (options === void 0) { options = {}; }
+    clearHide();
+    var toast = notifyHtml(type, title, message, date);
+    var container = document.getElementById('toast-container');
+    if (container != null) {
+        container.insertAdjacentHTML("afterbegin", toast.html);
+        var toastEl = document.querySelectorAll('#toast-container #' + toast.id + '[data-see="false"]');
+        toastEl[0].setAttribute("data-see", "true");
+        if (bootstrap != null) {
+            new bootstrap.Toast(toastEl[0], options).show();
         }
     }
 };

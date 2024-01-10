@@ -9,7 +9,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     return to.concat(ar || Array.prototype.slice.call(from));
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.simpleNotify = exports.simple = exports.clearHide = void 0;
+exports.notify = exports.simpleNotify = exports.clearHide = void 0;
 var modalTypes = {
     "primary": "text-bg-primary",
     "secondary": "text-bg-secondary",
@@ -32,34 +32,69 @@ var clearHide = function () {
 exports.clearHide = clearHide;
 /**
  *
+ * @param type string
+ * @param title string
+ * @param message string
+ * @param date string
+ * @returns
+ */
+var notifyHtml = function (type, title, message, date) {
+    var id = "t" + Math.floor(Math.random() * Date.now());
+    var html = '<div id="' + id + '" class="toast ' + modalTypes[type] + ' border-0 mb-3 animate__animated animate__fadeInRight" data-see="false" role="alert" aria-live="assertive" aria-atomic="true"><div class="toast-header"><strong class="me-auto">' + title + '</strong><small>' + date + '</small><button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button></div><div class="toast-body">' + message + '</div></div>';
+    return { html: html, id: id };
+};
+/**
+ *
  * primary, secondary, danger, dark, info, light, success, warning
  * @param type string
  * @param message string
- * @returns
+ * @returns json
  */
-var simple = function (type, message) {
+var simpleHtml = function (type, message) {
     var id = "t" + Math.floor(Math.random() * Date.now());
     var html = '<div class="toast ' + modalTypes[type] + ' border-0 mb-3 animate__animated animate__fadeInRight" id="' + id + '" data-see="false" role="alert" data-bs-autohide="true" aria-live="assertive" aria-atomic="true"><div class="d-flex"><div class="toast-body">' + message + '</div><button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button></div></div>';
     return { html: html, id: id };
 };
-exports.simple = simple;
 /**
  *
  * primary, secondary, danger, dark, info, light, success, warning
  * @param type string
  * @param message string
  */
-var simpleNotify = function (type, message) {
+var simpleNotify = function (type, message, options) {
+    if (options === void 0) { options = {}; }
     (0, exports.clearHide)();
-    var toast = (0, exports.simple)(type, message);
+    var toast = simpleHtml(type, message);
     var container = document.getElementById('toast-container');
     if (container != null) {
         container.insertAdjacentHTML("afterbegin", toast.html);
         var toastEl = document.querySelectorAll('#toast-container #' + toast.id + '[data-see="false"]');
         toastEl[0].setAttribute("data-see", "true");
         if (bootstrap != null) {
-            new bootstrap.Toast(toastEl[0], {}).show();
+            new bootstrap.Toast(toastEl[0], options).show();
         }
     }
 };
 exports.simpleNotify = simpleNotify;
+/**
+ * primary, secondary, danger, dark, info, light, success, warning
+ * @param type string
+ * @param title string
+ * @param message string
+ * @param date string
+ */
+var notify = function (type, title, message, date, options) {
+    if (options === void 0) { options = {}; }
+    (0, exports.clearHide)();
+    var toast = notifyHtml(type, title, message, date);
+    var container = document.getElementById('toast-container');
+    if (container != null) {
+        container.insertAdjacentHTML("afterbegin", toast.html);
+        var toastEl = document.querySelectorAll('#toast-container #' + toast.id + '[data-see="false"]');
+        toastEl[0].setAttribute("data-see", "true");
+        if (bootstrap != null) {
+            new bootstrap.Toast(toastEl[0], options).show();
+        }
+    }
+};
+exports.notify = notify;
