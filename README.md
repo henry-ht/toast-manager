@@ -1,4 +1,4 @@
-# Toast Manager - Maneja Notificaciones de bootstrap de manera dinámica
+# Toast Manager - Handle Bootstrap notifications dynamically.
 
 Add magic to your website with our basic npm package. Local notifications and dynamic toasts with Bootstrap 5 or higher. Enhance user experience simply and effectively. Discover it now!
 
@@ -36,7 +36,7 @@ This generates: <br />
 This generates: <br />
 <img src="img/simple-notify-1.png" alt="see simple notify">
 
--Finally, this method clears the container of notifications with the class `.hide`. This process is automatically performed each time a new notification is created. <br />
+- Finally, this method clears the container of notifications with the class `.hide`. This process is automatically performed each time a new notification is created. <br />
 ```toastManager.clearHide();```
 
 5. HTML container
