@@ -14,5 +14,11 @@
   "license": "MIT",
   "devDependencies": {
     "typescript": "^5.3.3"
-  }
+  },
+  "keywords": [
+    "css",
+    "bootstrap",
+    "toast",
+    "notifications"
+  ]
 }
