@@ -26,7 +26,12 @@ toastManager.simpleNotify(type:string, message:string, options = {});
 
 toastManager.clearHide();
 
-3. Toast Types (notifications)
+5. HTML container
+
+<div class="toast-container position-reelative top-2 end-0 p-3" id="toast-container" style="z-index: 9999">
+</div>
+
+4. Toast Types (notifications)
 
 primary 
 secondary 
