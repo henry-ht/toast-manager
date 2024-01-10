@@ -1,7 +1,15 @@
 "use strict";
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.simpleNotify = exports.simple = exports.clearHide = void 0;
-var toast_1 = require("bootstrap/js/dist/toast");
 var modalTypes = {
     "primary": "text-bg-primary",
     "secondary": "text-bg-secondary",
@@ -18,7 +26,7 @@ var modalTypes = {
 var clearHide = function () {
     var toastHiden = document.querySelectorAll('#toast-container .toast.hide');
     if (toastHiden != null) {
-        [toastHiden].map(function (toast) { return toast.remove(); });
+        __spreadArray([], toastHiden, true).map(function (toast) { return toast.remove(); });
     }
 };
 exports.clearHide = clearHide;
@@ -49,7 +57,9 @@ var simpleNotify = function (type, message) {
         container.insertAdjacentHTML("afterbegin", toast.html);
         var toastEl = document.querySelectorAll('#toast-container #' + toast.id + '[data-see="false"]');
         toastEl[0].setAttribute("data-see", "true");
-        new toast_1.default(toastEl[0], {}).show();
+        if (bootstrap != null) {
+            new bootstrap.Toast(toastEl[0], {}).show();
+        }
     }
 };
 exports.simpleNotify = simpleNotify;

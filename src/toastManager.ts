@@ -1,5 +1,3 @@
-import Toast from "bootstrap/js/dist/toast";
-
 const modalTypes = {
     "primary"  : "text-bg-primary",
     "secondary": "text-bg-secondary",
@@ -15,9 +13,9 @@ const modalTypes = {
 * empty container toast
 */
 export const clearHide = () => {
-    const toastHiden = document.querySelectorAll('#toast-container .toast.hide') as unknown as HTMLInputElement | null;
+    const toastHiden = document.querySelectorAll('#toast-container .toast.hide') as NodeListOf<HTMLInputElement> | null;
     if(toastHiden != null){
-        [toastHiden].map(toast => toast.remove())
+        [...toastHiden].map(toast => toast.remove())
     }
 };
 
@@ -48,6 +46,8 @@ export const simpleNotify = (type:string, message:string) => {
         container.insertAdjacentHTML("afterbegin", toast.html);
         const toastEl = document.querySelectorAll('#toast-container #'+toast.id+'[data-see="false"]');
         toastEl[0].setAttribute("data-see", "true");
-        new Toast(toastEl[0], {}).show();
+        if(bootstrap != null){
+            new bootstrap.Toast(toastEl[0], {}).show();
+        }
     }
 };
