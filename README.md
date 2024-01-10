@@ -21,8 +21,10 @@ window.toastManager = toastManager;
 2. Methods
 
 toastManager.notify(type:string, title:string, message:string, date:string, options = {});
+<img src="img/notify-1.png" alt="see notify">
 
 toastManager.simpleNotify(type:string, message:string, options = {});
+<img src="img/simple-notify-1.png" alt="see simple notify">
 
 toastManager.clearHide();
 
