@@ -26,7 +26,7 @@ export const clearHide = () => {
  * @param message string
  * @returns 
  */
-export const simple = (type:string, message:string) => {
+export const simpleHtml = (type:string, message:string) => {
     let id = "t"+Math.floor(Math.random() * Date.now());
     let html = '<div class="toast '+modalTypes[type  as keyof typeof modalTypes]+' border-0 mb-3 animate__animated animate__fadeInRight" id="'+id+'" data-see="false" role="alert" data-bs-autohide="true" aria-live="assertive" aria-atomic="true"><div class="d-flex"><div class="toast-body">'+message+'</div><button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button></div></div>';
     return {html, id};
@@ -40,7 +40,7 @@ export const simple = (type:string, message:string) => {
  */
 export const simpleNotify = (type:string, message:string) => {
     clearHide();
-    let toast = simple(type, message);
+    let toast = simpleHtml(type, message);
     let container = document.getElementById('toast-container') as HTMLInputElement | null;
     if(container != null){
         container.insertAdjacentHTML("afterbegin", toast.html);
