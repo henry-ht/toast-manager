@@ -24,24 +24,24 @@ window.toastManager = toastManager;
 
 2. Methods
 
-- The first method will create a more detailed notification.
+- The first method will create a more detailed notification.<br />
 ```toastManager.notify(type:string, title:string, message:string, date:string, options = {});```
 
-This generates: 
+This generates: <br />
 <img src="img/notify-1.png" alt="see notify">
 
--This type of notification is useful for displaying the status of a request.
+-This type of notification is useful for displaying the status of a request. <br />
 ```toastManager.simpleNotify(type:string, message:string, options = {});```
 
-This generates: 
+This generates: <br />
 <img src="img/simple-notify-1.png" alt="see simple notify">
 
--Finally, this method clears the container of notifications with the class `.hide`. This process is automatically performed each time a new notification is created.
+-Finally, this method clears the container of notifications with the class `.hide`. This process is automatically performed each time a new notification is created. <br />
 ```toastManager.clearHide();```
 
 5. HTML container
 
-To add notifications to the DOM, it's necessary to create a container in your HTML with the attribute id='toast-container'. To display them in your desired location, simply follow the toast guide on the official [Bootstrap page](https://getbootstrap.com/docs/5.0/components/toasts/#placement).
+To add notifications to the DOM, it's necessary to create a container in your HTML with the attribute `id="toast-container"`. To display them in your desired location, simply follow the toast guide on the official [Bootstrap page](https://getbootstrap.com/docs/5.0/components/toasts/#placement).
 
 ```
 <div class="toast-container position-reelative top-2 end-0 p-3" id="toast-container" style="z-index: 9999">
