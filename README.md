@@ -43,3 +43,8 @@ info
 light
 success
 warning
+
+
+## License
+
+The Toast Manager is open-sourced library licensed under the [MIT license](https://opensource.org/licenses/MIT).
