@@ -20,5 +20,9 @@
     "bootstrap",
     "toast",
     "notifications"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/henry-ht/toast-manager.git"
+  }
 }
