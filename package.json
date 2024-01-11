@@ -1,6 +1,6 @@
 {
   "name": "@henryht/toast-manager",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "dist-node/toastManager.js",
   "browser": "dist-browser/toastManager.js",
   "type": "module",
