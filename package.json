@@ -4,7 +4,7 @@
   "main": "dist-node/toastManager.js",
   "browser": "dist-browser/toastManager.js",
   "type": "module",
-  "description": "Una forma fácil de general notificaciones locales (toast) con bootstrap",
+  "description": "A simple way to generate local notifications (toasts) with Bootstrap",
   "scripts": {
     "build-browser": "tsc src/toastManager.ts --outDir dist-browser --module ES6",
     "build-node": "tsc src/toastManager.ts --outDir dist-node",
