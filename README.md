@@ -27,13 +27,11 @@ npm i @henryht/toast-manager
     -   The first method will create a more detailed notification.<br />
     ```toastManager.notify(type:string, title:string, message:string, date:string, options = {});```
 
-    This generates: <br />
     <img src="img/notify-1.png" alt="see notify">
 
     -   This type of notification is useful for displaying the status of a request. <br />
     ```toastManager.simpleNotify(type:string, message:string, options = {});```
 
-    This generates: <br />
     <img src="img/simple-notify-1.png" alt="see simple notify">
 
     -   Finally, this method clears the container of notifications with the class `.hide`. This process is automatically performed each time a new notification is created. <br />
